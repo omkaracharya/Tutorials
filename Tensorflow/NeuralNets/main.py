@@ -61,8 +61,8 @@ def train_neural_network_model(X):
         for epoch in range(number_of_epochs):
             epoch_loss = 0
             for _ in range(int(mnist_data.train.num_examples / batch_size)):
-                epoch_x, epoch_y = mnist_data.train.next_batch(batch_size)
-                _, c = sess.run([optimizer, cost], feed_dict={X: epoch_x, y: epoch_y})
+                epoch_X, epoch_y = mnist_data.train.next_batch(batch_size)
+                _, c = sess.run([optimizer, cost], feed_dict={X: epoch_X, y: epoch_y})
                 epoch_loss += c
             print('Epoch', epoch, 'completed out of', number_of_epochs, 'loss:', epoch_loss)
 
